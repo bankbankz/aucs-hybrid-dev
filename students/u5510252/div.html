@@ -1,0 +1,71 @@
+<!DOCTYPE>
+<html>
+<body>
+	<button id="b1" onclick="showTempDiv();">Temperature</button>
+	<button id="b2" onclick="showDisDiv();">Distance</button>
+	<button id="b3" onclick="showWeightDiv();">Weight</button>
+	<p id="hide"></p>
+	<div id="d1">
+		<h1>Tempareture Calculator<h1>
+		<h4>Calcius : </h4><input type="text" id="celcius"></input><br>
+		<h4>Fahrenhiet : </h4><input type="text" id="fahrenheit"></input><br>
+		<button id="b1" onclick="toFahrenheit();">Calculate</button>
+	</div>
+	<div id="d2">
+		<h1>BMI Calculator</h1>
+		<p>Weight : </p><input type="text" id="weight"></input><br>
+		<p>Hight : </p><input type="text" id="hight"></input><br>
+		<button id="b2" onclick="bmiCalculate();">Calculate</button>
+	</div>
+	<div id="d3">
+		<h1>Distance Calculator</h1>
+		<p>Velocity (km/hr) : </p><input type="text" id="velocity"></input><br>
+		<p>Time (hour): </p><input type="text" id="time"></input><br>
+		<button id="b3" onclick="distanceCalculate();">Calculate</button>
+	</div>
+</body>
+<script>
+	function toFahrenheit(){
+		var input = document.getElementById("celcius");
+		var output = document.getElementById("fahrenheit");
+		output.value = (parseInt(input.value)*1.8+32);
+	}
+	function bmiCalculate(){
+		var weight = document.getElementById("weight");
+		var hight = document.getElementById("hight");
+		var output = (parseInt(weight.value)/(parseInt(hight.value)*parseInt(hight.value)));
+		alert("BMI = " + output);
+
+	}
+	function distanceCalculate(){
+		var v = document.getElementById("velocity");
+		var t = document.getElementById("time");
+		var output = (parseInt(v.value))*(parseInt(t.value));
+		alert("Distance = " + output + " Kilomater");
+	}
+
+	function showTempDiv() {
+		var d1 = document.getElementById('d1').style.display = 'block';
+		var d2 = document.getElementById('d2').style.display = 'none';
+		var d3 = document.getElementById('d3').style.display = 'none';
+		return " "
+	}
+	function showDisDiv() {
+		var d1 = document.getElementById('d1').style.display = 'none';
+		var d2 = document.getElementById('d2').style.display = 'block';
+		var d3 = document.getElementById('d3').style.display = 'none';
+	}
+	function showWeightDiv() {
+		var d1 = document.getElementById('d1').style.display = 'none';
+		var d2 = document.getElementById('d2').style.display = 'none';
+		var d3 = document.getElementById('d3').style.display = 'block';
+	}
+
+	function hiddenAll(){
+		var d1 = document.getElementById('d1').style.display = 'none';
+		var d2 = document.getElementById('d2').style.display = 'none';
+		var d3 = document.getElementById('d3').style.display = 'none';
+	}
+	document.getElementById("hide").innerHTML = showTempDiv(); 
+</script>
+</html>
